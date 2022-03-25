@@ -1,10 +1,25 @@
 Rails.application.routes.draw do
-  resources :spells
-  resources :items
-  resources :skills
-  resources :characters
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  
+  namespace :api do
+    get "/auth", to: "users#show"
+    get "/me", to: "users#show"
+    post "/login", to: "sessions#create"
+    delete "/logout", to: "sessions#destroy"
+    
+    resources :sessions
+    resources :users
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+    resources :characters
+    get "/default-chars", to: "characters#default_char"
+
+    resources :skills
+    resources :items
+    resources :spells
+    
+    resources :encounters
+    resources :enemies
+    resources :searches
+    resources :traps
+    resources :conversations
+  end
 end

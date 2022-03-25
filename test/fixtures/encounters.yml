@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  encounter_name: MyString
+  encounter_desc: MyText
+  encounter_class: MyString
+  sneak_diff: 1
+
+two:
+  encounter_name: MyString
+  encounter_desc: MyText
+  encounter_class: MyString
+  sneak_diff: 1

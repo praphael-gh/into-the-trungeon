@@ -4,6 +4,7 @@ class CreateItems < ActiveRecord::Migration[7.0]
       t.string :item_name
       t.text :item_desc
       t.string :item_class
+      t.references :character, :search
 
       t.timestamps
     end

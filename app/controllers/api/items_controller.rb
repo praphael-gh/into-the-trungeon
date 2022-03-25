@@ -1,10 +1,10 @@
 class Api::ItemsController < ApplicationController
-  before_action :set_item, only: %i[ show edit update destroy ]
+  before_action :authorized
 
   # GET /items or /items.json
   def index
     items = Item.all
-    render json: items, include: items, status: :ok
+    render json: items, status: :ok
   end
 
   # GET /items/1 or /items/1.json

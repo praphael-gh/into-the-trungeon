@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  convo_name: MyString
+  convo_desc: MyText
+  convo_class: MyString
+
+two:
+  convo_name: MyString
+  convo_desc: MyText
+  convo_class: MyString

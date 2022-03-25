@@ -4,6 +4,7 @@ class CreateSpells < ActiveRecord::Migration[7.0]
       t.string :spell_name
       t.text :spell_desc
       t.string :spell_class
+      t.references :character, :search
 
       t.timestamps
     end
