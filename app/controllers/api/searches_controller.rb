@@ -1,5 +1,6 @@
 class Api::SearchesController < ApplicationController
   before_action :authorized
+  skip_before_action :authorized, only: [:index]
 
   # GET /searches
   def index
