@@ -3,6 +3,8 @@
 # Users
 default_user = User.create(username:"default", password:"no")
 
+test_user = User.create(username:"test", password:"no")
+
 # Encounters
 intro = Encounter.create(encounter_name:"Introduction", encounter_desc:"Intro to Trungeon", encounter_class:"Intro", skills_required:"", sneak_diff:0, user_id:default_user.id)
 
@@ -24,9 +26,9 @@ see_walkway = Search.create(search_name:"See Walkway", search_desc: "You see a t
 see_knapsack = Search.create(search_name:"See Knapsack", search_desc:"You see the light catch on something metallic, there a appears to be a knapsack lodged under some rubble. You are able to free the knapsack.", search_diff:10, encounter_id:lone_goblin_encounter.id)
 
 # Characters
-knight = Character.create(char_name:"Knight", char_desc:"An armored tank, a force to be reckoned with.", char_health: 10, char_armor:7, char_speed: 20, char_sneak: 0, user_id:default_user.id)
-rogue = Character.create(char_name:"Rogue", char_desc:"A sneak-thief, keep your coin-purse close.", char_health: 7, char_armor:5, char_speed: 30, char_sneak: 10, user_id:default_user.id)
-mage = Character.create(char_name:"Mage", char_desc:"A cunning mage, abundantly resourceful, but frail as a twig.", char_health: 3, char_armor:0, char_speed: 25, char_sneak: 3, user_id:default_user.id)
+knight = Character.create(char_name:"Knight", char_desc:"An armored tank, a force to be reckoned with.", char_class:"Knight", char_health: 10, char_armor:7, char_speed: 20, char_sneak: 0, user_id:default_user.id)
+rogue = Character.create(char_name:"Rogue", char_desc:"A sneak-thief, keep your coin-purse close.", char_class:"Rogue", char_health: 7, char_armor:5, char_speed: 30, char_sneak: 10, user_id:default_user.id)
+mage = Character.create(char_name:"Mage", char_desc:"A cunning mage, abundantly resourceful, but frail as a twig.", char_class:"Mage", char_health: 3, char_armor:0, char_speed: 25, char_sneak: 3, user_id:default_user.id)
 
 # Skills
 
@@ -62,4 +64,4 @@ ring_of_levitation = Item.create(item_name:"Ring of Levitation", item_desc:"A fi
 
 # Mage Spells
 fireblast = Spell.create(spell_name:"Fireblast", spell_desc:"You hurl a mighty ball of fire. Deals damage to groups of enemies.", spell_class:"Destruction", character_id: mage.id, search_id:initial_search.id)
-sleep_spell = Spell.create(spell_name:"Sleep", spell_desc:"You place a group of enemies under a hypnotic trance. All enemies who fail the check fall completely asleep. Increases Stealth check success chance for encounter.", character_id:mage.id, search_id:initial_search.id)
+sleep_spell = Spell.create(spell_name:"Sleep", spell_desc:"You place a group of enemies under a hypnotic trance. All enemies who fail the check fall completely asleep. Increases Stealth check success chance for encounter.", spell_class:"Utility", character_id:mage.id, search_id:initial_search.id)

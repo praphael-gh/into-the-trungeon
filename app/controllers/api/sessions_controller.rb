@@ -1,7 +1,12 @@
 class Api::SessionsController < ApplicationController
   before_action :authorized
-  skip_before_action :authorized, only: :create
+  skip_before_action :authorized, only: [:index, :create]
 
+
+  def index
+    sessions = Session.all
+    render json: sessions
+  end
 
   # POST /sessions
   def create
