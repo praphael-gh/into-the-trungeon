@@ -5,7 +5,7 @@ class Api::SkillsController < ApplicationController
   # GET /skills or /skills.json
   def index
     skills = Skill.all
-    render json: skills, include: skills, status: :ok
+    render json: skills, status: :ok
   end
 
   # GET /skills/1 or /skills/1.json

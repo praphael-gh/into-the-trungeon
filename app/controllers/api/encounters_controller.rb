@@ -1,15 +1,17 @@
 class Api::EncountersController < ApplicationController
   before_action :authorized
+  skip_before_action :authorized, only: [:index, :show]
 
   # GET /encounters
   def index
     encounters = Encounter.all
-    render json: encounters
+    render json: encounters, status: :ok
   end
 
   # GET /encounters/1
   def show
-    render json: @encounter
+    index_encounter = Encounter.find(encounter_params[:id])
+    render json: index_encounter, status: :ok
   end
 
   # POST /encounters

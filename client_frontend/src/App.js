@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
+import { Routes, Route, NavLink } from "react-router-dom";
 
 import Login from "./Login/Login";
-import Logout from "./Login/Logout";
-import CharacterLister from "./characters/CharacterLister";
-
+import CharacterLister from "./Characters/CharacterLister";
+import NavBar from "./NavBar";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -20,206 +20,40 @@ function App() {
   if (user) {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1>Welcome to Trungeon</h1>
-        </header>
-        <div id="select-character">
-          <CharacterLister
-          user={user}
-            selectedCharacter={selectedCharacter}
-            setSelectedCharacter={setSelectedCharacter}
+        <NavBar user={user} logout={setUser} />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <div id="select-character">
+                <header className="App-header">
+                  <h1>Welcome to Trungeon</h1>
+                </header>
+                <CharacterLister
+                  user={user}
+                  selectedCharacter={selectedCharacter}
+                  setSelectedCharacter={setSelectedCharacter}
+                />
+              </div>
+            }
           />
-        </div>
-        <Logout user={user} logout={setUser}/>
-        <p>Logged In: {user.username
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        }</p>
+        </Routes>
+        <br/>
+        <NavLink
+          to="/encounter-1"
+          exact
+          style={{
+            borderRadius: "5%",
+            padding: "12px",
+            margin: "30px 20px",
+            background: "grey",
+            textDecoration: "none",
+            color: "black",
+            fontSize: 20,
+          }}
+        >
+          Into The Trungeon!
+        </NavLink>
       </div>
     );
   } else {

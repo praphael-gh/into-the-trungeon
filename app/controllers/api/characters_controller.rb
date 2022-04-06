@@ -19,13 +19,15 @@ class Api::CharactersController < ApplicationController
 
   # POST /characters or /characters.json
   def create
+    new_character = Character.create(character_params)
+    render json: new_character, status: :created
   end
 
   # DELETE /characters/1 or /characters/1.json
   def destroy
   end
 
-  private
+  private 
     # Use callbacks to share common setup or constraints between actions.
     def set_character
       @character = Character.find(params[:id])
@@ -33,6 +35,6 @@ class Api::CharactersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def character_params
-      params.permit(:name, :health, :armor, :speed)
+      params.permit(:char_name, :char_desc, :char_class, :char_health, :char_armor, :char_speed, :char_sneak, :user_id, :skills, :items, :spells)
     end
 end
