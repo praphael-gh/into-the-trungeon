@@ -25,6 +25,7 @@ function App() {
         </header>
         <div id="select-character">
           <CharacterLister
+          user={user}
             selectedCharacter={selectedCharacter}
             setSelectedCharacter={setSelectedCharacter}
           />

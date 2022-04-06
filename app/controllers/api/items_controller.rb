@@ -1,5 +1,7 @@
 class Api::ItemsController < ApplicationController
   before_action :authorized
+  skip_before_action :authorized, only: [:index]
+
 
   # GET /items or /items.json
   def index

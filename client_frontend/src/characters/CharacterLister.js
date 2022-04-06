@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 
-const CharacterLister = ({ selectedCharacter, setSelectedCharacter }) => {
+const CharacterLister = ({ user, selectedCharacter, setSelectedCharacter }) => {
   const [characterArray, setCharacterArray] = useState([]);
 
   useEffect(() => {
@@ -10,8 +10,14 @@ const CharacterLister = ({ selectedCharacter, setSelectedCharacter }) => {
       .then((characters) => setCharacterArray(characters));
   }, []);
 
-  const confirmCharSelection = (charSelcted) => {
-    fetch("/api")
+  const confirmCharSelection = (e) => {
+    console.log(selectedCharacter)
+    let userCharacter = new FormData()
+    userCharacter.append("char_name", e.target.value)
+    fetch("/api/characters", {
+      method:"POST",
+      body: selectedCharacter
+    })
   }
 
   return (
@@ -41,7 +47,11 @@ const CharacterLister = ({ selectedCharacter, setSelectedCharacter }) => {
           </div>
         );
       })}
-      <button onClick={() => console.log(selectedCharacter)}>Confirm Character Selection</button>
+      <label>Character Name:</label>
+      <br/>
+      <input type="text"/>
+      <br/>
+      <button onClick={(e) => confirmCharSelection(e)}>Confirm Character Selection</button>
     </div>
   );
 };

@@ -1,9 +1,11 @@
 class Api::SpellsController < ApplicationController
-  before_action :set_spell, only: %i[ show edit update destroy ]
+  before_action :authorized
+  skip_before_action :authorized, only: [:index]
 
   # GET /spells or /spells.json
   def index
-    @spells = Spell.all
+    spells = Spell.all
+    render json: spells, include :spells
   end
 
   # GET /spells/1 or /spells/1.json

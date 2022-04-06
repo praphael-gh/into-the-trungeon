@@ -10,6 +10,7 @@ class Api::CharactersController < ApplicationController
 
   def default_char
     default_characters = Character.where(user_id:1)
+    render json: default_characters, include: [:skills, :items, :spells]
   end
 
   # GET /characters/1 or /characters/1.json

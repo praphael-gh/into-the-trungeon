@@ -1,5 +1,6 @@
 class Api::SkillsController < ApplicationController
-  before_action :set_skill, only: %i[ show edit update destroy ]
+  before_action :authorized
+  skip_before_action :authorized, only: [:index]
 
   # GET /skills or /skills.json
   def index
