@@ -1,6 +1,6 @@
 class Api::SearchesController < ApplicationController
   before_action :authorized
-  skip_before_action :authorized, only: [:index]
+  skip_before_action :authorized, only: [:index, :show]
 
   # GET /searches
   def index
@@ -11,7 +11,8 @@ class Api::SearchesController < ApplicationController
 
   # GET /searches/1
   def show
-    render json: @search
+    search = Search.find(params[:id])
+    render json: search, status: :ok  
   end
 
   # POST /searches

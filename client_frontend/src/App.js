@@ -3,6 +3,8 @@ import { Routes, Route, NavLink } from "react-router-dom";
 
 import Login from "./Login/Login";
 import CharacterLister from "./Characters/CharacterLister";
+import EncounterPageOne from "./Encounters/EncounterPageOne";
+
 import NavBar from "./NavBar";
 
 function App() {
@@ -37,8 +39,16 @@ function App() {
               </div>
             }
           />
+          <Route
+            path="/encounter-1"
+            element={
+              <div id="encounter-1">
+                <EncounterPageOne user={user} />
+              </div>
+            }
+          />
         </Routes>
-        <br/>
+        <br />
         <NavLink
           to="/encounter-1"
           exact

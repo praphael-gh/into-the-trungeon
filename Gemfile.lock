@@ -71,6 +71,8 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
+    amoeba (3.2.0)
+      activerecord (>= 4.2.0)
     bcrypt (3.1.17)
     bootsnap (1.11.1)
       msgpack (~> 1.2)
@@ -172,6 +174,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  amoeba
   bcrypt (~> 3.1.7)
   bootsnap
   debug

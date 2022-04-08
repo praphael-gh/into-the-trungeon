@@ -30,6 +30,7 @@ knight = Character.create(char_name:"Knight", char_desc:"An armored tank, a forc
 rogue = Character.create(char_name:"Rogue", char_desc:"A sneak-thief, keep your coin-purse close.", char_class:"Rogue", char_health: 7, char_armor:5, char_speed: 30, char_sneak: 10, user_id:default_user.id)
 mage = Character.create(char_name:"Mage", char_desc:"A cunning mage, abundantly resourceful, but frail as a twig.", char_class:"Mage", char_health: 3, char_armor:0, char_speed: 25, char_sneak: 3, user_id:default_user.id)
 
+
 # Skills
 
 

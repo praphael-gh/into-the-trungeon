@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
     resources :characters
     get "/default-chars", to: "characters#default_char"
+    get "/char", to: "characters#char_selected"
 
     resources :skills
     resources :items

@@ -12,11 +12,9 @@ const CharacterLister = ({ user, selectedCharacter, setSelectedCharacter }) => {
   }, []);
 
   const confirmCharSelection = (charState) => {
-    setSelectedCharacter({
-      ...charState.char_name = playerCharName,
-      ...charState
-    })
-    console.log(selectedCharacter)
+    fetch(`/api/characters/${charState.id}`)
+    .then(resp => resp.json())
+    .then(character => console.log(character))
   }
 
   return (
@@ -48,8 +46,8 @@ const CharacterLister = ({ user, selectedCharacter, setSelectedCharacter }) => {
       })}
       <h3>Selected Class: </h3>
       <p>{selectedCharacter.char_class ? selectedCharacter.char_class : "No Character Selected"}</p>
-      <label>Character Name:</label>
-      <input type="text" onChange={e => setPlayerCharName(e.target.value)}/>
+      {/* <label>Character Name:</label> */}
+      {/* <input type="text" onChange={e => setPlayerCharName(e.target.value)}/> */}
       <button onClick={() => confirmCharSelection(selectedCharacter)}>Confirm Character Selection</button>
     </div>
   );

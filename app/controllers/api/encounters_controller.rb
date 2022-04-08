@@ -10,7 +10,7 @@ class Api::EncountersController < ApplicationController
 
   # GET /encounters/1
   def show
-    index_encounter = Encounter.find(encounter_params[:id])
+    index_encounter = Encounter.find(params[:id])
     render json: index_encounter, status: :ok
   end
 
