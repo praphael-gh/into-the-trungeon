@@ -1,10 +1,7 @@
 import { useState } from 'react'
 
-const CaveEntranceOptions = ({setCaveEncounterLog, caveEncounterLog}) => {
+const CaveEntranceOptions = ({setCharAlive, caveEncounterLog, setCaveEncounterLog}) => {
   const [searched, setSearched] = useState(false);
-  const [traverseDesc, setTraverseDesc] = useState()
-
-  // let searchObject = caveEncounter && caveEncounter.searches
   
   const traverseRoom = () => {
     if (searched) {
@@ -12,6 +9,7 @@ const CaveEntranceOptions = ({setCaveEncounterLog, caveEncounterLog}) => {
       console.log(caveEncounterLog)
     } else {
       setCaveEncounterLog([...caveEncounterLog, 'You foolhardedly charge forward into the chasm, sending yourself to death'])
+      setCharAlive(false)
       console.log(caveEncounterLog)
     }
   };
@@ -19,7 +17,7 @@ const CaveEntranceOptions = ({setCaveEncounterLog, caveEncounterLog}) => {
   const searchRoom = () => {
     fetch("/api/searches/2")
         .then(resp => resp.json())
-        .then(search => setCaveEncounterLog([search.search_desc]))
+        .then(search => setCaveEncounterLog([...caveEncounterLog, search.search_desc]))
         .then(() => setSearched(true))
   };
     

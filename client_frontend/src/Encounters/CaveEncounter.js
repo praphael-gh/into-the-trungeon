@@ -1,10 +1,12 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 import CaveEntranceOptions from "../Options/CaveEntranceOptions"
 
 const CaveEncounter = ({ user }) => {
   const [playerChar, setPlayerChar] = useState({});
+  const [charAlive, setCharAlive] = useState(true);
   const [caveEncounter, setCaveEncounter] = useState({});
   const [caveEncounterLog, setCaveEncounterLog] = useState([]);
 
@@ -34,7 +36,8 @@ const CaveEncounter = ({ user }) => {
           <p>{log}</p>
         )
       })}
-      <CaveEntranceOptions caveEncounterLog={caveEncounterLog} setCaveEncounterLog={setCaveEncounterLog} />
+      <CaveEntranceOptions charAlive={charAlive} setCharAlive={setCharAlive} caveEncounterLog={caveEncounterLog} setCaveEncounterLog={setCaveEncounterLog} />
+      {charAlive ? <p>Make a choice</p> : <NavLink to="/" >You are dead</NavLink> }
       <h2>{playerChar.char_name}</h2>
       <p>{playerChar.char_desc}</p>
       <h3>Skills</h3>
