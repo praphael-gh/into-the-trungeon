@@ -3,7 +3,7 @@ import { Routes, Route, NavLink } from "react-router-dom";
 
 import Login from "./Login/Login";
 import CharacterLister from "./Characters/CharacterLister";
-import EncounterPageOne from "./Encounters/EncounterPageOne";
+import CaveEncounter from "./Encounters/CaveEncounter";
 
 import NavBar from "./NavBar";
 
@@ -43,7 +43,7 @@ function App() {
             path="/encounter-1"
             element={
               <div id="encounter-1">
-                <EncounterPageOne user={user} />
+                <CaveEncounter user={user} />
               </div>
             }
           />

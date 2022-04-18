@@ -3,9 +3,10 @@ import { useEffect, useState } from "react";
 
 import CaveEntranceOptions from "../Options/CaveEntranceOptions"
 
-const EncounterPageOne = ({ user }) => {
+const CaveEncounter = ({ user }) => {
   const [playerChar, setPlayerChar] = useState({});
   const [caveEncounter, setCaveEncounter] = useState({});
+  const [caveEncounterLog, setCaveEncounterLog] = useState([]);
 
   useEffect(() => {
     fetch("/api/encounters/2")
@@ -28,7 +29,12 @@ const EncounterPageOne = ({ user }) => {
       <h1>{caveEncounter.encounter_name}</h1>
       <p>{caveEncounter.encounter_desc}</p>
       <br />
-      <CaveEntranceOptions caveEncounter={caveEncounter} />
+      {caveEncounterLog && caveEncounterLog.map(log => {
+        return (
+          <p>{log}</p>
+        )
+      })}
+      <CaveEntranceOptions caveEncounterLog={caveEncounterLog} setCaveEncounterLog={setCaveEncounterLog} />
       <h2>{playerChar.char_name}</h2>
       <p>{playerChar.char_desc}</p>
       <h3>Skills</h3>
@@ -67,4 +73,4 @@ const EncounterPageOne = ({ user }) => {
   );
 };
 
-export default EncounterPageOne;
+export default CaveEncounter;
