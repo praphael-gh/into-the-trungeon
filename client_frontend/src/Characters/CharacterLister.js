@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 const CharacterLister = ({ user, selectedCharacter, setSelectedCharacter }) => {
   const [characterArray, setCharacterArray] = useState([]);
-  const [playerCharName, setPlayerCharName] = useState('')
+  // const [playerCharName, setPlayerCharName] = useState('')
 
   useEffect(() => {
     fetch("/api/default-chars")
@@ -46,8 +46,6 @@ const CharacterLister = ({ user, selectedCharacter, setSelectedCharacter }) => {
       })}
       <h3>Selected Class: </h3>
       <p>{selectedCharacter.char_class ? selectedCharacter.char_class : "No Character Selected"}</p>
-      {/* <label>Character Name:</label> */}
-      {/* <input type="text" onChange={e => setPlayerCharName(e.target.value)}/> */}
       <button onClick={() => confirmCharSelection(selectedCharacter)}>Confirm Character Selection</button>
     </div>
   );

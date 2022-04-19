@@ -3,13 +3,18 @@ import { Routes, Route, NavLink } from "react-router-dom";
 
 import Login from "./Login/Login";
 import CharacterLister from "./Characters/CharacterLister";
+
 import CaveEncounter from "./Encounters/CaveEncounter";
+import LoneGoblinEncounter from "./Encounters/LoneGoblinEncounter";
 
 import NavBar from "./NavBar";
 
 function App() {
   const [user, setUser] = useState(null);
   const [selectedCharacter, setSelectedCharacter] = useState({});
+
+  const [charAlive, setCharAlive] = useState(true);
+  const [passedRoom, setPassedRoom] = useState(false);
 
   useEffect(() => {
     fetch("/api/me").then((response) => {
@@ -43,7 +48,26 @@ function App() {
             path="/encounter-1"
             element={
               <div id="encounter-1">
-                <CaveEncounter user={user} />
+                <CaveEncounter
+                  user={user}
+                  charAlive={charAlive}
+                  setCharAlive={setCharAlive}
+                  passedRoom={passedRoom}
+                  setPassedRoom={setPassedRoom}
+                />
+              </div>
+            }
+          />
+          <Route
+            path="/encounter-2"
+            element={
+              <div id="encounter-2">
+                <LoneGoblinEncounter
+                  charAlive={charAlive}
+                  setCharAlive={setCharAlive}
+                  passedRoom={passedRoom}
+                  setPassedRoom={setPassedRoom}
+                />
               </div>
             }
           />
