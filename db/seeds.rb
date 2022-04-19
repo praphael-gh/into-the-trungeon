@@ -10,7 +10,7 @@ intro = Encounter.create(encounter_name:"Introduction", encounter_desc:"Intro to
 
 cave_encounter = Encounter.create(encounter_name:"Cave Entrance", encounter_desc:"You follow along a rocky tunnel, a faint light appears at the end of the tunnel. As you step out from the threshold of the tunnel into the cavernous room, the light seems to be coming from an opening in the ceiling. There appears to be a chasm between where you are and the exit tunnel of the room. What will you do?", encounter_class:"Terrain", skills_required:"", sneak_diff:0, user_id:default_user.id)
 
-lone_goblin_encounter = Encounter.create(encounter_name:"Lone Goblin", encounter_desc:"As you move through the complex of rooms and caverns, you hear a whispering voice on the wind. Upon closer inspection, you see a lone goblin staring off into the darkness, muttering to itself about treachery and secrets. What will you do?", encounter_class:"Combat", skills_required:"", sneak_diff:5, user_id:default_user.id)
+lone_goblin_encounter = Encounter.create(encounter_name:"Lone Goblin", encounter_desc:"As you move through the complex of rooms and caverns, you hear a whispering voice on the wind, muttering about treachery and secrets. What will you do?", encounter_class:"Combat", skills_required:"", sneak_diff:5, user_id:default_user.id)
 
 # Enemies
 lone_goblin = Enemy.create(enemy_name:"Lone Goblin", enemy_desc:"A scrawny, pale goblin. Its clothing is tattered, and it only appears to have a dagger as its weapon.", enemy_class:"Fodder", enemy_health:3, enemy_armor:0, enemy_speed:20, enemy_sneak:5, encounter_id:lone_goblin_encounter.id)

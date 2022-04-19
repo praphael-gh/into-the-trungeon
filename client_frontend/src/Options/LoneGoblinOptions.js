@@ -1,20 +1,19 @@
-import React from "react";
 import { useState } from "react";
 
-const LoneGoblinOptions = (
+const LoneGoblinOptions = ({
   setCharAlive,
   goblinEncounterLog,
   setGoblinEncounterLog,
-  passedRoom,
-  setPassedRoom
-) => {
+  setPassedRoom,
+}) => {
   const [searched, setSearched] = useState(false);
+  console.log(goblinEncounterLog);
 
   const traverseRoom = () => {
     if (searched) {
       setGoblinEncounterLog([
         ...goblinEncounterLog,
-        "You look to see the sobbing goblin turn its head towards you, but it seems to pay you no mind. You cross the room without issue.",
+        "You look to see the chittering goblin turn its head towards you, but it seems to pay you no mind. You cross the room without issue.",
       ]);
       setPassedRoom(true);
     } else {
@@ -23,16 +22,18 @@ const LoneGoblinOptions = (
         "You walk into the room without a second glance. You suddenly hear the small pitter-patter of bare feet- CLONK! You are knocked out cold. A goblin has gotten the better of you.",
       ]);
       setCharAlive(false);
+      console.log(goblinEncounterLog);
     }
   };
 
   const searchRoom = () => {
-    fetch("/api/searches/3")
+    fetch("/api/encounters/3")
       .then((resp) => resp.json())
-      .then((search) =>
-        setGoblinEncounterLog([...goblinEncounterLog, search.search_desc])
+      .then(encounter => 
+        setGoblinEncounterLog([...goblinEncounterLog, `You see something quivering in the darkness. ${encounter.enemies[0].enemy_desc} And something else. ${encounter.searches[0].search_desc}`])
       )
-      .then(() => setSearched(true));
+      .then(() => setSearched(true))
+      
   };
 
   const sneakRoom = () => {};

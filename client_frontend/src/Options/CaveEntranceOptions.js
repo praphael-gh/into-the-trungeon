@@ -26,10 +26,10 @@ const CaveEntranceOptions = ({
   };
 
   const searchRoom = () => {
-    fetch("/api/searches/2")
+    fetch("/api/encounters/2")
       .then((resp) => resp.json())
-      .then((search) =>
-        setCaveEncounterLog([...caveEncounterLog, search.search_desc])
+      .then((encounter) =>
+        setCaveEncounterLog([...caveEncounterLog, encounter.searches[0].search_desc])
       )
       .then(() => setSearched(true));
   };

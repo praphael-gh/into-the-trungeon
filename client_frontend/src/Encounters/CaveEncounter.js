@@ -31,7 +31,6 @@ const CaveEncounter = ({
           return <p>{log}</p>;
         })}
       <CaveEntranceOptions
-        charAlive={charAlive}
         setCharAlive={setCharAlive}
         caveEncounterLog={caveEncounterLog}
         setCaveEncounterLog={setCaveEncounterLog}

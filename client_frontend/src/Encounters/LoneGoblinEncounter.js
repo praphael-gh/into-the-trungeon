@@ -1,25 +1,25 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom";
 
 import CharacterEncounterInfo from "../Characters/CharacterEncounterInfo";
 import LoneGoblinOptions from "../Options/LoneGoblinOptions";
 
-const LoneGoblinEncounter = (
+const LoneGoblinEncounter = ({
   charAlive,
   setCharAlive,
   passedRoom,
-  setPassedRoom
-) => {
+  setPassedRoom,
+}) => {
+  const [goblinEncounter, setGoblinEncounter] = useState({});
+  const [goblinEncounterLog, setGoblinEncounterLog] = useState([]);
+  console.log(goblinEncounterLog);
 
-    const [goblinEncounter, setGoblinEncounter] = useState({})
-    const [goblinEncounterLog, setGoblinEncounterLog] = useState([])
-
-    useEffect(() => {
-        fetch("/api/encounters/3")
-          .then((resp) => resp.json())
-          .then((encounter) => setGoblinEncounter(encounter));
-      }, []);
+  useEffect(() => {
+    fetch("/api/encounters/3")
+      .then((resp) => resp.json())
+      .then((encounter) => setGoblinEncounter(encounter));
+  }, []);
 
   return (
     <div id="encounter-one">
@@ -31,7 +31,6 @@ const LoneGoblinEncounter = (
           return <p>{log}</p>;
         })}
       <LoneGoblinOptions
-        charAlive={charAlive}
         setCharAlive={setCharAlive}
         goblinEncounterLog={goblinEncounterLog}
         setGoblinEncounterLog={setGoblinEncounterLog}
@@ -52,7 +51,7 @@ const LoneGoblinEncounter = (
       )}
       <CharacterEncounterInfo />
     </div>
-  )
+  );
 };
 
 export default LoneGoblinEncounter;
