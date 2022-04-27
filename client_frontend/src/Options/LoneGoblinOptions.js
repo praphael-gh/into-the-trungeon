@@ -7,6 +7,7 @@ const LoneGoblinOptions = ({
   setPassedRoom,
 }) => {
   const [searched, setSearched] = useState(false);
+  const [sneaked, setSneaked] = useState(false);
   console.log(goblinEncounterLog);
 
   const traverseRoom = () => {
@@ -15,6 +16,12 @@ const LoneGoblinOptions = ({
         ...goblinEncounterLog,
         "You look to see the chittering goblin turn its head towards you, but it seems to pay you no mind. You cross the room without issue.",
       ]);
+      setPassedRoom(true);
+    } else if (searched && sneaked) {
+      setGoblinEncounterLog([
+        ...goblinEncounterLog,
+        "Having already snuck across the room, you are able to safely leave."
+      ])
       setPassedRoom(true);
     } else {
       setGoblinEncounterLog([
@@ -36,7 +43,10 @@ const LoneGoblinOptions = ({
       
   };
 
-  const sneakRoom = () => {};
+  const sneakRoom = () => {
+    setGoblinEncounterLog([...goblinEncounterLog, 'You creep along the edge of the room, careful not to make any noise, you are able to safely traverse the room.'])
+    setSneaked(true)
+  };
 
   return (
     <div id="goblin-options">

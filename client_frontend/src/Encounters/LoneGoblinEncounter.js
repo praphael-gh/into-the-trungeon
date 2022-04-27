@@ -13,12 +13,15 @@ const LoneGoblinEncounter = ({
 }) => {
   const [goblinEncounter, setGoblinEncounter] = useState({});
   const [goblinEncounterLog, setGoblinEncounterLog] = useState([]);
-  console.log(goblinEncounterLog);
+  
 
-  useEffect(() => {
+  useEffect((setPassedRoom) => {
     fetch("/api/encounters/3")
       .then((resp) => resp.json())
-      .then((encounter) => setGoblinEncounter(encounter));
+      .then((encounter) => {
+        setGoblinEncounter(encounter)
+        setPassedRoom(false)
+      });
   }, []);
 
   return (

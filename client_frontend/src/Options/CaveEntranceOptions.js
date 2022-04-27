@@ -6,6 +6,8 @@ const CaveEntranceOptions = ({
   setCaveEncounterLog,
   setPassedRoom,
 }) => {
+  setCharAlive(true)
+  
   const [searched, setSearched] = useState(false);
 
   const traverseRoom = () => {
