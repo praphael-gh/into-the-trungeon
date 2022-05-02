@@ -15,23 +15,23 @@ const LoneGoblinEncounter = ({
   const [goblinEncounterLog, setGoblinEncounterLog] = useState([]);
   
 
-  useEffect((setPassedRoom) => {
+  useEffect(() => {
+    setPassedRoom(false)
     fetch("/api/encounters/3")
       .then((resp) => resp.json())
       .then((encounter) => {
         setGoblinEncounter(encounter)
-        setPassedRoom(false)
       });
   }, []);
 
   return (
-    <div id="encounter-one">
+    <div id="encounter-two">
       <h1>{goblinEncounter.encounter_name}</h1>
       <p>{goblinEncounter.encounter_desc}</p>
       <br />
       {goblinEncounterLog &&
         goblinEncounterLog.map((log) => {
-          return <p>{log}</p>;
+          return <p key={log}>{log}</p>;
         })}
       <LoneGoblinOptions
         setCharAlive={setCharAlive}
@@ -55,6 +55,7 @@ const LoneGoblinEncounter = ({
       <CharacterEncounterInfo />
     </div>
   );
+  
 };
 
 export default LoneGoblinEncounter;

@@ -12,8 +12,12 @@ cave_encounter = Encounter.create(encounter_name:"Cave Entrance", encounter_desc
 
 lone_goblin_encounter = Encounter.create(encounter_name:"Lone Goblin", encounter_desc:"As you move through the complex of rooms and caverns, you hear a whispering voice on the wind, muttering about treachery and secrets. What will you do?", encounter_class:"Combat", skills_required:"", sneak_diff:5, user_id:default_user.id)
 
+witch_encounter = Encounter.create(encounter_name:"The Witch", encounter_desc:'The rough edges of the tunnel serve as guidence to you. As you head deeper into the cavernous complex, you see the dim glow of some sort of fire-light at the center of the dark void. There appears to be a figure hunched over the source of light. It speaks to you in a rasping voice, "I can hear you, my precious child.". What will you do?', encounter_class:"Riddle", skills_required:"", sneak_diff:0, user_id:default_user.id)
+
 # Enemies
 lone_goblin = Enemy.create(enemy_name:"Lone Goblin", enemy_desc:"A scrawny, pale goblin. Its clothing is tattered, and it only appears to have a dagger as its weapon.", enemy_class:"Fodder", enemy_health:3, enemy_armor:0, enemy_speed:20, enemy_sneak:5, encounter_id:lone_goblin_encounter.id)
+
+the_witch = Enemy.create(enemy_name:"The Witch", enemy_desc:"A hunched over old woman. Her clothes are a pitch-black, and her gnarled fingers are curled over a knotted staff of yew.", enemy_class:"Boss", enemy_health:5, enemy_armor:5, enemy_speed:15, enemy_sneak:0, encounter_id:witch_encounter.id)
 
 # Traps
 pitfall_trap = Trap.create(trap_name:"Pitfall", trap_desc:"A pitfall spans the majority of the room.", trap_class:"Terrain", trap_search_diff: 5, encounter_id: cave_encounter.id)  

@@ -28,7 +28,7 @@ const CaveEncounter = ({
       <br />
       {caveEncounterLog &&
         caveEncounterLog.map((log) => {
-          return <p>{log}</p>;
+          return <p key={log}>{log}</p>;
         })}
       <CaveEntranceOptions
         setCharAlive={setCharAlive}

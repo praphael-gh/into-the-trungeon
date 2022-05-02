@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+
 const LoneGoblinOptions = ({
   setCharAlive,
   goblinEncounterLog,
@@ -8,7 +9,6 @@ const LoneGoblinOptions = ({
 }) => {
   const [searched, setSearched] = useState(false);
   const [sneaked, setSneaked] = useState(false);
-  console.log(goblinEncounterLog);
 
   const traverseRoom = () => {
     if (searched) {
@@ -17,11 +17,11 @@ const LoneGoblinOptions = ({
         "You look to see the chittering goblin turn its head towards you, but it seems to pay you no mind. You cross the room without issue.",
       ]);
       setPassedRoom(true);
-    } else if (searched && sneaked) {
+    } else if (sneaked) {
       setGoblinEncounterLog([
         ...goblinEncounterLog,
         "Having already snuck across the room, you are able to safely leave."
-      ])
+      ]);
       setPassedRoom(true);
     } else {
       setGoblinEncounterLog([
