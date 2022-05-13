@@ -1,6 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
+import './NavBarCSS/NavBar.css'
+
 const NavBar = ({user, logout}) => {
 
     function handleLogout() {
@@ -33,7 +35,7 @@ const NavBar = ({user, logout}) => {
       <NavLink to="/" exact onClick={() => handleLogout()} style={linkStyles}>
           Logout 
       </NavLink>
-      <p>Current User: {user.username}</p>
+      <p id='current-user'>Current User: {user.username}</p>
       
     </div>
   );

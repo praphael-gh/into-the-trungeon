@@ -1,0 +1,68 @@
+#login-page {
+  font-family: "Prociono";
+
+  background: #fff0b9;
+}
+
+#login-page > div {
+  font-family: "Prociono";
+
+  display: flexbox;
+ 
+
+  background: #fff0b9;
+}
+
+/* #login-page > p {
+  clear:right;
+} */
+
+#login-page > #login {
+  font-family: "Prociono";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+
+  /* display: flexbox; */
+  /* align-self: center; */
+  border-style: solid;
+  border-radius: 5px;
+  /* width: 200px;  */
+  height: 340px;
+  margin-inline: 25%;
+  background: #fffdd5;
+
+}
+
+
+
+#login-page > #create-account {
+  font-family: "Prociono";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+
+  /* display: flexbox; */
+  /* align-self: center; */
+  border-style: solid;
+  border-radius: 5px;
+  /* width: 200px;  */
+  height: 340px;
+  margin-inline: 25%;
+  background: #fffdd5;
+}
+
+
+
+#trungeon-img {
+float: right;
+width: 25%;
+position: absolute;
+top: 10%;
+right:33%;
+box-shadow: 2px 4px 4px rgba(0.5, 0.5, 0.5, 0.5);
+border-radius: 500px;
+
+}

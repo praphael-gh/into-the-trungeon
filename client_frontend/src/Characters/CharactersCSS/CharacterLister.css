@@ -1,0 +1,47 @@
+h1 {
+    text-align: center;
+}
+
+#character-select{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex: content;
+    justify-content: center;
+    align-content: center;
+
+    align-items: center;
+    
+}
+
+
+div.character {
+    display: flexbox;
+    
+    border-style: solid;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    width: 300px;
+
+    background:#fffdd5;
+}
+
+.character > h1 {
+    text-align: center;
+    background:#fffdd5;
+}
+
+.character-img {
+    text-align: center;
+    background:#fffdd5;
+}
+
+.description {
+    border-style:inset;
+    border-radius: 5px;
+}
+
+#confirm-class {
+    text-align: center;
+}

@@ -9,6 +9,8 @@ import LoneGoblinEncounter from "./Encounters/LoneGoblinEncounter";
 
 import NavBar from "./NavBar";
 
+import "./AppCSS/App.css";
+
 function App() {
   const [user, setUser] = useState(null);
   const [selectedCharacter, setSelectedCharacter] = useState({});
@@ -73,21 +75,24 @@ function App() {
           />
         </Routes>
         <br />
-        <NavLink
-          to="/encounter-1"
-          exact
-          style={{
-            borderRadius: "5%",
-            padding: "12px",
-            margin: "30px 20px",
-            background: "grey",
-            textDecoration: "none",
-            color: "black",
-            fontSize: 20,
-          }}
-        >
-          Into The Trungeon!
-        </NavLink>
+        <div className="into-trungeon">
+          <NavLink
+            id="into-encounter"
+            to="/encounter-1"
+            exact
+            style={{
+              borderRadius: "5%",
+              padding: "12px",
+              margin: "30px 20px",
+              background: "grey",
+              textDecoration: "none",
+              color: "black",
+              fontSize: 20,
+            }}
+          >
+            Into The Trungeon!
+          </NavLink>
+        </div>
       </div>
     );
   } else {

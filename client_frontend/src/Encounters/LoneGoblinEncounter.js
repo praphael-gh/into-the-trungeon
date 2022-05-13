@@ -15,7 +15,7 @@ const LoneGoblinEncounter = ({
   const [goblinEncounterLog, setGoblinEncounterLog] = useState([]);
   
 
-  useEffect(() => {
+  useEffect(({setPassedRoom}) => {
     setPassedRoom(false)
     fetch("/api/encounters/3")
       .then((resp) => resp.json())

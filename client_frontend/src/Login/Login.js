@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import "./LoginCSS/Login.css";
 const Login = ({ setUser }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -42,56 +42,66 @@ const Login = ({ setUser }) => {
   };
 
   return (
-    <div id="login-page">
-      <div id="login">
-        <h2>Login</h2>
-        <form onSubmit={(e) => handleSubmit(e)}>
-          <input
-            type="text"
-            value={username}
-            placeholder="Username"
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <br/>
-          <input
-            type="password"
-            value={password}
-            placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <br/>
-          <button type="submit">Login</button>
-        </form>
+    <>
+      <div id="login-page">
+        <div id="login">
+          <h2>Login</h2>
+          <form onSubmit={(e) => handleSubmit(e)}>
+            <input
+              type="text"
+              value={username}
+              placeholder="Username"
+              onChange={(e) => setUsername(e.target.value)}
+            />
+
+            <br />
+            <input
+              type="password"
+              value={password}
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <div id="trungeon-logo">
+              <img
+                src={process.env.PUBLIC_URL + "/images/trungeonlogo.png"}
+                alt="trungeon-logo"
+                id="trungeon-img"
+              />
+            </div>
+            <button type="submit">Login</button>
+          </form>
+        </div>
+
+        <br />
+        <div id="create-account">
+          <h2>Create Account</h2>
+          <form onSubmit={(e) => handleNewUserSubmit(e)}>
+            <input
+              type="text"
+              value={newUsername}
+              placeholder="New Username"
+              onChange={(e) => setNewUsername(e.target.value)}
+            />
+            <br />
+            <input
+              type="password"
+              value={newPassword}
+              placeholder="New Password"
+              onChange={(e) => setNewPassword(e.target.value)}
+            />
+            <br />
+            <input
+              type="password"
+              value={confirmPassword}
+              placeholder="Confirm Password"
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+            <br />
+            <button type="submit">Create Account</button>
+          </form>
+        </div>
       </div>
-      <br />
-      <div id="create-account">
-      <h2>Create Account</h2>
-        <form onSubmit={(e) => handleNewUserSubmit(e)}>
-          <input
-            type="text"
-            value={newUsername}
-            placeholder="New Username"
-            onChange={(e) => setNewUsername(e.target.value)}
-          />
-          <br/>
-          <input
-            type="password"
-            value={newPassword}
-            placeholder="New Password"
-            onChange={(e) => setNewPassword(e.target.value)}
-          />
-          <br/>
-          <input
-            type="password"
-            value={confirmPassword}
-            placeholder="Confirm Password"
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          />
-          <br/>
-          <button type="submit">Create Account</button>
-        </form>
-      </div>
-    </div>
+    </>
   );
 };
 
